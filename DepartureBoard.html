@@ -293,6 +293,22 @@ listItem.innerHTML = `
         fetchAndDisplayLiveTrainServices();
         setInterval(fetchAndDisplayLiveTrainServices, 15000); // Update every minute (60,000 milliseconds)
     };
+// Function to handle form submission
+stationForm.addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
+
+  // Get the value entered in the input field
+  const stationName = stationInput.value.trim();
+
+  // Construct the URL based on the entered station name
+  const apiUrl = `https://national-rail-api.davwheat.dev/staffdepartures/${stationName}?expand=true`;
+
+  // Set the iframe src to the constructed URL
+  const iframe = document.querySelector('.iframe-container iframe');
+  iframe.src = apiUrl;
+});
+
+    
 </script>
 
 </body>
