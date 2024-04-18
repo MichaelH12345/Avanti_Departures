@@ -29,6 +29,51 @@
             font-weight: normal;
             font-style: normal;
         }
+
+/* Clock styles */
+.clock {
+    position: absolute;
+    bottom: 0px; /* 3 pixels from the bottom */
+    right: 40px; /* 35 pixels from the right */
+    font-family: 'AvertaBold', sans-serif;
+    font-size: 80px;
+    color: white;
+    z-index: 2; /* Ensure the clock appears above other elements */
+}
+
+
+/* Text box styles */
+.text-box {
+    position: fixed;
+    bottom: 7.5px; /* 10 pixels from the bottom */
+    left: 40px; /* 35 pixels from the very left */
+    font-family: 'AvertaBold', sans-serif; /* Specify the font */
+    font-size: 80px; /* Text size */
+    color: white;
+    background-color: #141d2c; /* Background color */
+    padding: 10px; /* Add padding */
+    text-align: right; /* Align text to the left */
+}
+
+
+
+
+
+
+
+
+
+    /* Box styles */
+.box {
+    position: absolute;
+    bottom: 0; /* Start from the very bottom */
+    right: 20; /* Start from the very right */
+    height: 115px;
+    width: 340px;
+    background-color: #141d2c; /* Background color */
+}
+
+
         
         /* Body styles */
         body, html {
@@ -161,7 +206,7 @@
             position: absolute;
             bottom: 0; /* Start at the very bottom */
             left: 0; /* Align with the left side of the iframe */
-            height: 85px; /* Set the height to 50 pixels */
+            height: 95px; /* Set the height to 50 pixels */
             width: 100%; /* Make it span the entire width of the iframe */
             background-color: #FF4713; /* Change the background color */
         }
@@ -234,6 +279,22 @@
         color = 'white'; // Set text color to white for other statuses
     }
 
+    // Update the clock every second
+function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds}`;
+    document.querySelector('.clock').textContent = timeString;
+}
+
+// Initial call to update the clock
+updateClock();
+
+// Set interval to update the clock every second
+setInterval(updateClock, 1000);
+
 listItem.innerHTML = `
     <div>${std}</div>
     <div class="destination">${destination}</div>
@@ -263,6 +324,13 @@ listItem.innerHTML = `
         setInterval(fetchAndDisplayLiveTrainServices, 15000); // Update every minute (60,000 milliseconds)
     };
 </script>
+
+
+<!-- Clock -->
+<div class="clock">00:00:00</div>
+
+<!-- Box -->
+<div class="box"></div>
 
 </body>
 </html>
