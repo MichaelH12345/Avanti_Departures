@@ -39,18 +39,6 @@
             background-color: #141d2c; /* Background color of the whole page */
         }
         
-        /* Background image */
-        .background {
-            position: fixed;
-            top: 15px; /* 15 pixels from the top */
-            left: 30px; /* 30 pixels from the left */
-            z-index: -1;
-        }
-        .background img {
-            width: 50px; /* 50% smaller width */
-            height: auto; /* Maintain aspect ratio */
-        }
-        
         /* Iframe container */
         .iframe-container {
             position: absolute;
@@ -129,48 +117,45 @@
         }
         .live-train-services li div {
             flex: 1; /* Distribute equal space */
-}
+        }
 
-.live-train-services li .destination {
-    position: absolute;
-    text-align: left;
-    left: 205px; /* Adjust left position for positioning */
-    width: calc(100% - 170px); /* Decrease width of container */
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-
-.live-train-services li .platform {
-    position: absolute;
-    text-align: right;
-    right: 875px; /* Adjust right position for positioning */
-    width: 100px; /* Adjust width as needed */
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.live-train-services li .status {
-    position: absolute;
-    text-align: right;
-    right: 595px; /* Adjust right position for positioning */
-    color: white;
-}
-
-.live-train-services li .operator {
-    position: relative;
-    text-align: left;
-    right: 775px;/* Adjust left position for positioning */
-    top: 60px; /* Move down by 50px */
-    width: calc(100% - 170px); /* Decrease width of container */
-    white-space: nowrap;
-    overflow: hidden;
-    font-family: 'Thin Averta', sans-serif; /* Change font to Thin Averta */
-}
+        .live-train-services li .destination {
+            position: absolute;
+            text-align: left;
+            left: 205px; /* Adjust left position for positioning */
+            width: calc(100% - 170px); /* Decrease width of container */
+            white-space: nowrap;
+            overflow: hidden;
+        }
 
 
+        .live-train-services li .platform {
+            position: absolute;
+            text-align: right;
+            right: 875px; /* Adjust right position for positioning */
+            width: 100px; /* Adjust width as needed */
+            white-space: nowrap;
+            overflow: hidden;
+        }
 
-        
+        .live-train-services li .status {
+            position: absolute;
+            text-align: right;
+            right: 595px; /* Adjust right position for positioning */
+            color: white;
+        }
+
+        .live-train-services li .operator {
+            position: relative;
+            text-align: left;
+            right: 775px;/* Adjust left position for positioning */
+            top: 60px; /* Move down by 50px */
+            width: calc(100% - 170px); /* Decrease width of container */
+            white-space: nowrap;
+            overflow: hidden;
+            font-family: 'Thin Averta', sans-serif; /* Change font to Thin Averta */
+        }
+
         /* Orange box */
         .orange-box {
             position: absolute;
@@ -183,11 +168,6 @@
     </style>
 </head>
 <body>
-    <!-- Background image -->
-    <div class="background">
-        <img id="image" src="https://raw.githubusercontent.com/MichaelH12345/fonts/main/download%20(1).png" alt="Image" onload="updateTextBoxPosition()">
-    </div>
-    
     <!-- Text boxes -->
     <div class="text-box">Departures</div>
     <div class="time">
@@ -205,12 +185,6 @@
 <div class="live-train-services" id="liveTrainServices">
     <ul id="liveTrainList"></ul>
 </div>
-
-    
-    <!-- Iframe container -->
-    <div class="iframe-container">
-        <iframe src="https://raw.githubusercontent.com/MichaelH12345/fonts/main/download%20(1).png"></iframe>
-    </div>
     
     <!-- Orange box -->
     <div class="orange-box"></div>
@@ -276,11 +250,6 @@ listItem.innerHTML = `
         } catch (error) {
             console.error('Error fetching live train services:', error);
         }
-    }
-
-    function updateTextBoxPosition() {
-        var imageLeft = document.querySelector('.background').offsetLeft;
-        document.querySelector('.text-box').style.left = (imageLeft + 60) + 'px';
     }
 
     // Function to format departure time
