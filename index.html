@@ -240,7 +240,7 @@
 <script>
     async function fetchAndDisplayLiveTrainServices() {
         try {
-            const response = await fetch('https://national-rail-api.davwheat.dev/staffdepartures/EUS?expand=true');
+            const response = await fetch('https://national-rail-api.davwheat.dev/staffdepartures/CAR?expand=true');
             const data = await response.json();
             const trainServices = data.trainServices;
 
