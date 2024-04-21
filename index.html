@@ -124,31 +124,28 @@
             height: 3px; /* Medium thickness */
             background-color: #FF4713; /* Orange color */
         }
-
-        /* Live train services */
-        .live-train-services {
-            position: absolute;
-            top: 160px; /* Adjust based on your layout */
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            color: white;
-            font-family: 'Averta', sans-serif;
-            font-size: 50px; /* Adjusted text size */
-        }
+.live-train-services {
+    position: absolute;
+    top: 160px; /* Adjust based on your layout */
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    color: white;
+    font-family: 'Averta', sans-serif;
+    font-size: 50px; /* Adjusted text size */
+    padding-left: 0; /* Adjusted padding-left */
+}
         .live-train-services ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        .live-train-services li {
-            margin-bottom: 10px; /* Increased margin bottom */
-            padding-bottom: 70px;
-            border-bottom: 3px solid white;
-            display: flex; /* Use flexbox */
-            left: 0; /* Start from the very left */
-        }
-
+.live-train-services li {
+    margin-bottom: 10px; /* Increased margin bottom */
+    padding-bottom: 70px;
+    border-bottom: 3px solid white;
+    display: flex; /* Use flexbox */
+}
         .live-train-services li div {
             flex: 1; /* Distribute equal space */
         }
@@ -156,7 +153,7 @@
         .live-train-services li .destination {
             position: absolute;
             text-align: left;
-            left: 205px; /* Adjust left position for positioning */
+            left: 202.5px; /* Adjust left position for positioning */
             width: calc(100% - 170px); /* Decrease width of container */
             white-space: nowrap;
             overflow: hidden;
@@ -166,7 +163,7 @@
         .live-train-services li .platform {
             position: absolute;
             text-align: right;
-            right: 875px; /* Adjust right position for positioning */
+            right: 860px; /* Adjust right position for positioning */
             width: 100px; /* Adjust width as needed */
             white-space: nowrap;
             overflow: hidden;
@@ -175,27 +172,36 @@
         .live-train-services li .status {
             position: absolute;
             text-align: right;
-            right: 595px; /* Adjust right position for positioning */
+            right: 572.5px; /* Adjust right position for positioning */
             color: white;
         }
 
-        .live-train-services li .operator {
-            position: relative;
-            text-align: left;
-            right: 455px;
-            top: 60px; /* Move down by 50px */
-            white-space: nowrap;
-            overflow: show; /* Display overflowing content */
-            font-family: 'Thin Averta', sans-serif; /* Change font to Thin Averta */
-        }
+ .live-train-services li .operator {
+    position: relative;
+    text-align: left;
+    left: 202.5px;
+    top: 60px; /* Maintain the same position */
+    white-space: nowrap;
+    overflow: visible; /* Change overflow to visible */
+    font-family: 'Thin Averta', sans-serif;
+}
+
+        .live-train-services li .std {
+    position: absolute;
+    text-align: left;
+    left: 30px; /* Adjust left position for positioning */
+    width: calc(100% - 170px); /* Decrease width of container */
+    white-space: nowrap;
+    overflow: hidden;
+}
 
         .nrccMessage {
             position: absolute;
             left: 0; /* Start from the very left */
-            bottom: 5; /* Align with the bottom of the iframe */
+            bottom: -150; /* Align with the bottom of the iframe */
             font-family: 'Averta', sans-serif; /* Specify the font */
             color: white;
-            height: 95px; /* Set height to 95 pixels */
+            height: 250px; /* Set height to 95 pixels */
             width: auto; /* Allow text box width to adjust based on content */
             font-size: 75px; /* Set the font size */
             white-space: nowrap; /* Prevent text from wrapping */
@@ -315,6 +321,21 @@
                         const operator = service.operator ? service.operator : '-';
                         let reason = '';
 
+ // Fetch nrccMessages data
+        const nrccMessages = data.nrccMessages;
+        const nrccMessage = document.querySelector('.nrccMessage');
+
+        
+  // Display NRCC message
+                const nrccMessageContainer = document.querySelector('.nrccMessage');
+                if (nrccMessages && nrccMessages.length > 0) {
+                    const nrccMessage = nrccMessages[0].xhtmlMessage;
+                    nrccMessageContainer.innerHTML = nrccMessage;
+                } else {
+                    nrccMessageContainer.innerHTML = "See it - Say it - Sorted.";
+                }
+
+
                         // Extracting time from std and etd fields
                         const std = service.std ? formatDepartureTime(service.std) : '-';
                         const atd = service.atd ? formatDepartureTime(service.atd) : '-';
@@ -339,27 +360,25 @@
                             color = 'white'; // Set text color to white for other statuses
                         }
 
-                        // Function to update the clock time every second
-function updateClock() {
-    const clockElement = document.querySelector('.clock');
-    setInterval(() => {
-        const now = new Date();
-        const hours = String(now.getHours()).padStart(2, '0');
-        const minutes = String(now.getMinutes()).padStart(2, '0');
-        const seconds = String(now.getSeconds()).padStart(2, '0');
-        const timeString = `${hours}:${minutes}:${seconds}`;
-        clockElement.textContent = timeString;
-    }, 1000); // Update every second (1000 milliseconds)
-}
+  // Update the clock every second
+                    function updateClock() {
+                        const now = new Date();
+                        const hours = String(now.getHours()).padStart(2, '0');
+                        const minutes = String(now.getMinutes()).padStart(2, '0');
+                        const seconds = String(now.getSeconds()).padStart(2, '0');
+                        const timeString = `${hours}:${minutes}:${seconds}`;
+                        document.querySelector('.clock').textContent = timeString;
+                    }
 
-// Call the updateClock function when the window loads
-window.onload = function() {
-    updateClock(); // Update the clock initially
-};
+                    // Initial call to update the clock
+                    updateClock();
+
+                    // Set interval to update the clock every second
+                    setInterval(updateClock, 1000);
 
 
                         listItem.innerHTML = `
-                            <div>${std}</div>
+                            <div class="std">${std}</div>
                             <div class="destination">${destination}</div>
                             <div class="platform">${platform}</div>
                             <div class="status" style="color: ${color};">${status}</div>
