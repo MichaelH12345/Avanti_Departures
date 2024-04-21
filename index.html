@@ -41,19 +41,16 @@
             z-index: 5; /* Ensure the clock appears above other elements */
         }
 
-/* Text box for Departures */
-.text-box {
-    position: absolute;
-    left: 90px; /* Start 60 pixels from the very left */
-    top: 5px; /* 5 pixels from the very top */
-    font-family: 'AvertaBold', sans-serif; /* Specify the font */
-    font-size: 70px; /* Text size */
-    color: white;
-    height: auto; /* Set height to auto initially */
-}
-
-
-        
+        /* Text box for Departures */
+        .text-box {
+            position: absolute;
+            left: 90px; /* Start 60 pixels from the very left */
+            top: 5px; /* 5 pixels from the very top */
+            font-family: 'AvertaBold', sans-serif; /* Specify the font */
+            font-size: 70px; /* Text size */
+            color: white;
+            height: auto; /* Set height to auto initially */
+        }
 
         /* Box styles */
         .box {
@@ -66,16 +63,16 @@
             z-index: 4; /* Ensure the clock appears above other elements */
         }
 
-/* Red box styles */
-.red-box {
-    position: absolute;
-    bottom: 0; /* Start from the very bottom */
-    right: 0; /* Start from the very right */
-    height: 95px;
-    width: 50px; /* Set width to 50 pixels */
-    background-color: #FF4713; /* Red background color */
-    z-index: 4; /* Ensure the box appears above other elements */
-}
+        /* Red box styles */
+        .red-box {
+            position: absolute;
+            bottom: 0; /* Start from the very bottom */
+            right: 0; /* Start from the very right */
+            height: 95px;
+            width: 50px; /* Set width to 50 pixels */
+            background-color: #FF4713; /* Red background color */
+            z-index: 4; /* Ensure the box appears above other elements */
+        }
 
         /* Body styles */
         body, html {
@@ -144,13 +141,13 @@
             padding: 0;
             margin: 0;
         }
-.live-train-services li {
-    margin-bottom: 10px; /* Increased margin bottom */
-    padding-bottom: 70px;
-    border-bottom: 3px solid white;
-    display: flex; /* Use flexbox */
-    left: 0; /* Start from the very left */
-}
+        .live-train-services li {
+            margin-bottom: 10px; /* Increased margin bottom */
+            padding-bottom: 70px;
+            border-bottom: 3px solid white;
+            display: flex; /* Use flexbox */
+            left: 0; /* Start from the very left */
+        }
 
         .live-train-services li div {
             flex: 1; /* Distribute equal space */
@@ -182,37 +179,35 @@
             color: white;
         }
 
-.live-train-services li .operator {
-    position: relative;
-    text-align: left;
-    right: 455px;
-    top: 60px; /* Move down by 50px */
-    white-space: nowrap;
-    overflow: show; /* Display overflowing content */
-    font-family: 'Thin Averta', sans-serif; /* Change font to Thin Averta */
-}
+        .live-train-services li .operator {
+            position: relative;
+            text-align: left;
+            right: 455px;
+            top: 60px; /* Move down by 50px */
+            white-space: nowrap;
+            overflow: show; /* Display overflowing content */
+            font-family: 'Thin Averta', sans-serif; /* Change font to Thin Averta */
+        }
 
+        .nrccMessage {
+            position: absolute;
+            left: 0; /* Start from the very left */
+            bottom: 5; /* Align with the bottom of the iframe */
+            font-family: 'Averta', sans-serif; /* Specify the font */
+            color: white;
+            height: 95px; /* Set height to 95 pixels */
+            width: auto; /* Allow text box width to adjust based on content */
+            font-size: 75px; /* Set the font size */
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden; /* Hide overflow content */
+            animation: scrollText 20s linear infinite; /* Define animation */
+            z-index: 1; /* Bring the text box to the front */
+        }
 
-.nrccMessage {
-    position: absolute;
-    left: 0; /* Start from the very left */
-    bottom: 5; /* Align with the bottom of the iframe */
-    font-family: 'Averta', sans-serif; /* Specify the font */
-    color: white;
-    height: 95px; /* Set height to 95 pixels */
-    width: auto; /* Allow text box width to adjust based on content */
-    font-size: 75px; /* Set the font size */
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflow content */
-    animation: scrollText 20s linear infinite; /* Define animation */
-    z-index: 1; /* Bring the text box to the front */
-}
-
-@keyframes scrollText {
-    0% { transform: translateX(100%); } /* Start off screen to the right */
-    100% { transform: translateX(-100%); } /* Scroll to off screen to the left */
-}
-
+        @keyframes scrollText {
+            0% { transform: translateX(100%); } /* Start off screen to the right */
+            100% { transform: translateX(-100%); } /* Scroll to off screen to the left */
+        }
 
         /* Orange box */
         .orange-box {
@@ -225,18 +220,18 @@
         }
 
         /* Station selection styles */
-.station-selection {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 999;
-    transition: opacity 0.3s ease-in-out;
-    text-align: center; /* Center align text */
-}
+        .station-selection {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 999;
+            transition: opacity 0.3s ease-in-out;
+            text-align: center; /* Center align text */
+        }
 
         .station-selection.hide {
             opacity: 0;
@@ -256,12 +251,9 @@
 
     <div class="red-box"></div>
 
-
     <!-- Text boxes -->
     <div class="text-box">Departures</div>
-    
-<div class="nrccMessage" style="left: 0;">If you see something that doesn't look right, speak to station staff or text the British Transport Police on 61016. See it - Say it - Sorted.</div>
-
+    <div class="nrccMessage" style="left: 0;">If you see something that doesn't look right, speak to station staff or text the British Transport Police on 61016. See it - Say it - Sorted.</div>
 
     <div class="time">
         <div>Time</div>
@@ -286,146 +278,165 @@
     <!-- Clock -->
     <div class="clock">00:00:00</div>
 
-
     <!-- Box -->
     <div class="box"></div>
 
-
     <div class="text-box">Departures</div>
 
-     <!-- Image -->
+    <!-- Image -->
     <img class="logo" src="https://github.com/MichaelH12345/fonts/raw/main/download%20(1).png" alt="Logo">
 
+    <!-- Station selection -->
+    <div class="station-selection" id="stationSelection">
+        <label for="station" style="font-family: 'Averta', sans-serif; font-size: 75px; color:#141d2c;">Choose a UK Station:</label>
+        <input type="text" id="station" name="station" style="font-family: 'Averta', sans-serif; font-size: 60px; color:#141d2c;" placeholder="Enter station name...">
+        <button onclick="fetchLiveTrainServices()" style="font-family: 'Averta', sans-serif; font-size: 60px; color:#141d2c;">Enter</button>
+    </div>
 
-<!-- Station selection -->
-<div class="station-selection" id="stationSelection">
-    <label for="station" style="font-family: 'Averta', sans-serif; font-size: 75px; color:#141d2c;">Choose a UK Station:</label>
-    <input type="text" id="station" name="station" style="font-family: 'Averta', sans-serif; font-size: 60px; color:#141d2c;" placeholder="Enter station name...">
-    <button onclick="fetchLiveTrainServices()" style="font-family: 'Averta', sans-serif; font-size: 60px; color:#141d2c;">Enter</button>
-</div>
+    <script>
+        async function fetchAndDisplayLiveTrainServices(station) {
+            try {
+                const response = await fetch(`https://national-rail-api.davwheat.dev/staffdepartures/${station}?expand=true`);
+                const data = await response.json();
+                const trainServices = data.trainServices;
+
+                const liveTrainList = document.getElementById('liveTrainList');
+                liveTrainList.innerHTML = ''; // Clear existing data
+
+                if (trainServices.length === 0) {
+                    // If no live train services available
+                    liveTrainList.innerHTML = "<li>No live train services available.</li>";
+                } else {
+                    // Generate and append live train service list items
+                    trainServices.forEach(service => {
+                        const listItem = document.createElement('li');
+                        const destination = service.destination[0].locationName;
+                        const platform = service.platform || '-';
+                        const operator = service.operator ? service.operator : '-';
+                        let reason = '';
+
+                        // Extracting time from std and etd fields
+                        const std = service.std ? formatDepartureTime(service.std) : '-';
+                        const atd = service.atd ? formatDepartureTime(service.atd) : '-';
+                        const etd = service.etd ? formatDepartureTime(service.etd) : '-';
+
+                        // Determine status based on cancellation status and ATD vs STD
+                        let status;
+                        let color; // Variable to store text color
+                        if (service.isCancelled) {
+                            status = 'Cancelled';
+                            color = '#FF4713'; // Set text color to orange for Cancelled status
+                            reason = getCancelReason(service.cancelReason);
+                        } else if (etd === '00:00') {
+                            status = 'Delayed';
+                            color = 'white'; // Set text color to white for Delayed status
+                            reason = getDelayReason(service.delayReason);
+                        } else if (std === etd) {
+                            status = 'On Time';
+                            color = 'white'; // Set text color to white for On Time status
+                        } else {
+                            status = etd;
+                            color = 'white'; // Set text color to white for other statuses
+                        }
+
+                        // Function to update the clock time every second
+function updateClock() {
+    const clockElement = document.querySelector('.clock');
+    setInterval(() => {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds}`;
+        clockElement.textContent = timeString;
+    }, 1000); // Update every second (1000 milliseconds)
+}
+
+// Call the updateClock function when the window loads
+window.onload = function() {
+    updateClock(); // Update the clock initially
+};
 
 
-<script>
-    async function fetchAndDisplayLiveTrainServices(station) {
-        try {
-            const response = await fetch(`https://national-rail-api.davwheat.dev/staffdepartures/${station}?expand=true`);
-            const data = await response.json();
-            const trainServices = data.trainServices;
+                        listItem.innerHTML = `
+                            <div>${std}</div>
+                            <div class="destination">${destination}</div>
+                            <div class="platform">${platform}</div>
+                            <div class="status" style="color: ${color};">${status}</div>
+                            <div class="operator">${operator}</div>
+                            <div class="reason">${reason}</div>
+                        `;
 
-            const liveTrainList = document.getElementById('liveTrainList');
-            liveTrainList.innerHTML = ''; // Clear existing data
+                        liveTrainList.appendChild(listItem);
+                    });
 
-            if (trainServices.length === 0) {
-                // If no live train services available
-                liveTrainList.innerHTML = "<li>No live train services available.</li>";
-            } else {
-                // Generate and append live train service list items
-                trainServices.forEach(service => {
-                    const listItem = document.createElement('li');
-                    const destination = service.destination[0].locationName;
-                    const platform = service.platform || '-';
-                    const operator = service.operator ? service.operator : '-';
-
-                    // Extracting time from std and etd fields
-                    const std = service.std ? formatDepartureTime(service.std) : '-';
-                    const atd = service.atd ? formatDepartureTime(service.atd) : '-';
-                    const etd = service.etd ? formatDepartureTime(service.etd) : '-';
-
-                    // Determine status based on cancellation status and ATD vs STD
-                    let status;
-                    let color; // Variable to store text color
-                    let reason = ''; // Variable to store delay reason
-                    if (service.isCancelled) {
-                        status = 'Cancelled';
-                        color = '#FF4713'; // Set text color to orange for Cancelled status
-                    } else if (etd === '00:00') {
-                        status = 'Delayed';
-                        color = 'white'; // Set text color to white for Delayed status
-                        reason = getDelayReason(service.delayReason);
-                    } else if (std === etd) {
-                        status = 'On Time';
-                        color = 'white'; // Set text color to white for On Time status
-                    } else {
-                        status = etd;
-                        color = 'white'; // Set text color to white for other statuses
+                    // Show the station name once the user chooses a station, only if it's not already shown
+                    const stationNameBox = document.getElementById('stationNameBox');
+                    if (!stationNameBox) {
+                        const stationNameBox = document.createElement('div');
+                        stationNameBox.id = 'stationNameBox';
+                        stationNameBox.classList.add('text-box');
+                        stationNameBox.style.left = '460px'; // Move it to the left by 10 pixels
+                        stationNameBox.style.top = '35px'; // Maintain the top position
+                        stationNameBox.style.fontFamily = 'Averta, sans-serif'; // Use Thin Averta font
+                        stationNameBox.style.fontSize = '35px'; // Text size
+                        stationNameBox.style.color = 'white'; // Text color
+                        stationNameBox.style.height = 'auto'; // Set height to auto initially
+                        stationNameBox.textContent = `(from ${data.locationName})`; // Station name in brackets
+                        document.body.appendChild(stationNameBox);
                     }
-
-                    // Update the clock every second
-                    function updateClock() {
-                        const now = new Date();
-                        const hours = String(now.getHours()).padStart(2, '0');
-                        const minutes = String(now.getMinutes()).padStart(2, '0');
-                        const seconds = String(now.getSeconds()).padStart(2, '0');
-                        const timeString = `${hours}:${minutes}:${seconds}`;
-                        document.querySelector('.clock').textContent = timeString;
-                    }
-
-                    // Initial call to update the clock
-                    updateClock();
-
-                    // Set interval to update the clock every second
-                    setInterval(updateClock, 1000);
-
-                    listItem.innerHTML = `
-                        <div>${std}</div>
-                        <div class="destination">${destination}</div>
-                        <div class="platform">${platform}</div>
-                        <div class="status" style="color: ${color};">${status}</div>
-                        <div class="operator">${operator}</div>
-                        <div class="reason">${reason}</div>
-                    `;
-
-                    liveTrainList.appendChild(listItem);
-                });
-
-                // Show the station name once the user chooses a station
-                const stationNameBox = document.createElement('div');
-                stationNameBox.classList.add('text-box');
-                stationNameBox.style.left = '460px'; // Move it to the left by 10 pixels
-                stationNameBox.style.top = '35px'; // Maintain the top position
-                stationNameBox.style.fontFamily = 'Averta, sans-serif'; // Use Thin Averta font
-                stationNameBox.style.fontSize = '35px'; // Text size
-                stationNameBox.style.color = 'white'; // Text color
-                stationNameBox.style.height = 'auto'; // Set height to auto initially
-                stationNameBox.textContent = `(from ${data.locationName})`; // Station name in brackets
-                document.body.appendChild(stationNameBox);
+                }
+            } catch (error) {
+                console.error('Error fetching live train services:', error);
             }
-        } catch (error) {
-            console.error('Error fetching live train services:', error);
         }
-    }
 
-    // Function to format departure time
-    function formatDepartureTime(timeString) {
-        return timeString.slice(11, 16);
-    }
+        // Function to format departure time
+        function formatDepartureTime(timeString) {
+            return timeString.slice(11, 16);
+        }
 
-    // Function to get delay reason
-    function getDelayReason(reasonCode) {
-        // Replace with actual logic to get delay reason from provided JSON file
-        // For now, return an empty string
+async function getDelayReason(reasonCode) {
+    try {
+        const response = await fetch('https://raw.githubusercontent.com/davwheat/raildotmatrix.co.uk/main/src/api/LatenessCodes.json');
+        const reasons = await response.json();
+        return reasons[reasonCode] || ''; // Return the reason text corresponding to the reason code, or an empty string if not found
+    } catch (error) {
+        console.error('Error fetching delay reasons:', error);
         return '';
     }
+}
 
-    // Function to fetch live train services based on user input
-    function fetchLiveTrainServices() {
-        const stationInput = document.getElementById('station').value;
-        if (stationInput) {
-            fetchAndDisplayLiveTrainServices(stationInput);
-            setInterval(() => fetchAndDisplayLiveTrainServices(stationInput), 15000); // Update every minute (60,000 milliseconds)
-            document.getElementById('stationSelection').classList.add('hide'); // Hide station selection
-        } else {
-            console.error('Please select a station.');
-        }
+async function getCancelReason(reasonCode) {
+    try {
+        const response = await fetch('https://raw.githubusercontent.com/davwheat/raildotmatrix.co.uk/main/src/api/CancellationCodes.json');
+        const reasons = await response.json();
+        return reasons[reasonCode] || ''; // Return the reason text corresponding to the reason code, or an empty string if not found
+    } catch (error) {
+        console.error('Error fetching cancellation reasons:', error);
+        return '';
     }
+}
 
+// Function to fetch live train services based on user input
+async function fetchLiveTrainServices() {
+    const stationInput = document.getElementById('station').value;
+    if (stationInput) {
+        await fetchAndDisplayLiveTrainServices(stationInput);
+        setInterval(() => fetchAndDisplayLiveTrainServices(stationInput), 15000); // Update every 15 seconds
+        document.getElementById('stationSelection').classList.add('hide'); // Hide station selection
+        updateClock(); // Start the clock
+    } else {
+        console.error('Please select a station.');
+    }
+}
 
-    // Fetch and display live train services initially and then every minute
-    window.onload = function() {
-        // Initially show station selection
-        document.getElementById('stationSelection').classList.remove('hide');
-    };
-</script>
+        // Fetch and display live train services initially and then every minute
+        window.onload = function() {
+            // Initially show station selection
+            document.getElementById('stationSelection').classList.remove('hide');
+        };
+    </script>
 
 </body>
 </html>
